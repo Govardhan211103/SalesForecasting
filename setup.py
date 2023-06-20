@@ -14,7 +14,7 @@ def get_requirements(file_path:str)->list[str]:
 
 setup(
     name='SalesForecasting',
-    version='0.0.1',
+    version='1.0',
     author='govardhan',
     author_email='vgovardhanvarma.vh@gmail.com',
     packages=find_packages(),

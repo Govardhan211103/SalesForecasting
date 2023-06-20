@@ -1,6 +1,5 @@
 import sys
-import logging
-import logger
+from src.logger import logging
 
 def error_msg_detail(error,error_detail:sys):
     exc_type,exc_instance,exc_traceback=error_detail.exc_info()
@@ -19,9 +18,3 @@ class CustomException(Exception):
     def __str__(self):
         return self.error_msg
 
-if __name__=='__main__':
-    try:
-        a=1/0
-    except Exception as e:
-        logging.info("Excpetion raised")
-        raise CustomException(e,sys)
