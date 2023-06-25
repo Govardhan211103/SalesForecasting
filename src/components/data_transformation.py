@@ -2,7 +2,7 @@ import sys
 import os
 import pandas as pd
 import numpy as np
-
+import dill
 
 from src.exception import CustomException
 from src.logger import logging
@@ -26,18 +26,18 @@ class DataTransformation:
         try:
             #features
             numerical_columns=[
-                'Store',
-                'Dept',
                 'Temperature',
                 'Fuel_Price',
                 'CPI',
                 'Unemployment',
-                'Size',
+                'Size']
+            categorical_columns=[
+                'Store',
+                'Dept',
+                'Type',
+                'IsHoliday',
                 'year', 
                 'week']
-            categorical_columns=[
-                'Type',
-                'IsHoliday']
 
             #Pipeline for features
 
@@ -86,23 +86,32 @@ class DataTransformation:
             input_feature_test_df = test_data.drop(target_column,axis=1)
             target_feature_test_df = test_data[target_column]
 
-            logging.info("Applying preprocessing object to train data and test data.")
+            logging.info("Applying preprocessing object to train and test data.")
 
             input_feature_train_arr = preprocessor_obj.fit_transform(input_feature_train_df)
             input_feature_test_arr = preprocessor_obj.fit_transform(input_feature_test_df)
-            
-            
+    
             train_arr=np.c_[input_feature_train_arr,np.array(target_feature_train_df)]
             test_arr=np.c_[input_feature_test_arr,np.array(target_feature_test_df)]
-                
-
-        
-
             return (
                 train_arr,
                 test_arr,
                 preprocessor_obj,
                 self.data_transformation_config.preprocessor_path_obj
             )
+
+           
         except Exception as e:
             raise CustomException(e,sys)
+
+    def save_object(self,file_path,obj):
+        try:
+            dir_path=os.path.dirname(file_path)
+
+            os.makedirs(dir_path,exist_ok=True)
+
+            with open(file_path, "wb") as file_obj:
+                dill.dump(obj,file_obj)
+        except Exception as e:
+            raise CustomException(e,sys)
+
