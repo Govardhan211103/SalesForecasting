@@ -49,4 +49,6 @@ if __name__=='__main__':
     train_data_path, test_data_path = obj.initiate_data_ingestion()
 
     transform_object=DataTransformation()
-    train_arr,test_arr,preproccessor_obj_path = transform_object.initiate_data_transformation(train_path=train_data_path,test_path=test_data_path)
+    train_arr, test_arr, preprocessor_obj, preproccessor_obj_path = transform_object.initiate_data_transformation(train_path=train_data_path,test_path=test_data_path)
+
+    save_object(file_path=preproccessor_obj_path,obj=preprocessor_obj)
