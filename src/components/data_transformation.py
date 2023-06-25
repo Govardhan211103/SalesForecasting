@@ -71,32 +71,36 @@ class DataTransformation:
         try:
 
             logging.info("Reading test and train data form given path.")
-            train_data = pd.read_csv(train_path)
-            test_data = pd.read_csv(test_path)
+            train_df = pd.read_csv(train_path)
+            test_df = pd.read_csv(test_path)
 
             logging.info("Reading data completed, Obtaining preprocessor object.")
-            preprocessor_obj = self.get_transformer_object()
+            preprocessing_obj = self.get_transformer_object()
 
-            target_column = 'Weekly_Sales'
+            target_column_name = 'Weekly_Sales'
 
             # dividing data into input and target features for preprocessing
-            input_feature_train_df = train_data.drop(columns=[target_column],axis=1)
-            target_feature_train_df = train_data[target_column]
+            input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
+            target_feature_train_df=train_df[target_column_name]
 
-            input_feature_test_df = test_data.drop(target_column,axis=1)
-            target_feature_test_df = test_data[target_column]
+            input_feature_test_df=test_df.drop(columns=[target_column_name],axis=1)
+            target_feature_test_df=test_df[target_column_name]
 
-            logging.info("Applying preprocessing object to train and test data.")
+            logging.info(f"Apllying preprocessor object on train and test dataframes ")
 
-            input_feature_train_arr = preprocessor_obj.fit_transform(input_feature_train_df)
-            input_feature_test_arr = preprocessor_obj.fit_transform(input_feature_test_df)
-    
-            train_arr=np.c_[input_feature_train_arr,np.array(target_feature_train_df)]
-            test_arr=np.c_[input_feature_test_arr,np.array(target_feature_test_df)]
+            input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df).toarray()
+            input_feature_test_arr=preprocessing_obj.fit_transform(input_feature_test_df).toarray()
+
+
+            logging.info(f"{type(np.array(target_feature_train_df))},{type(input_feature_train_arr)}")
+
+            train_arr=np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
+            test_arr=np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
+
             return (
                 train_arr,
                 test_arr,
-                preprocessor_obj,
+                preprocessing_obj,
                 self.data_transformation_config.preprocessor_path_obj
             )
 

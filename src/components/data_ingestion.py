@@ -3,7 +3,11 @@ import os
 
 from src.exception import CustomException
 from src.logger import logging
+
 from data_transformation import DataTransformation
+
+from model_training import ModelTrainer
+#from src.components.model_training import ModelTrainer
 
 
 import pandas as pd
@@ -56,4 +60,9 @@ if __name__=='__main__':
     #saving the preprcoessor pickle file
     transform_object.save_object(preproccessor_obj_path,preprocessor_obj)
     logging.info("Saved the preprocesor.pkl file")
+
+    modeltrainer=ModelTrainer()
+    test_sc,train_sc=modeltrainer.initiate_model_trainer(train_arr,test_arr)
+    logging.info(f"Test score: {test_sc}, Train score: {train_sc}")
+    print(f"Test score: {test_sc}, Train score: {train_sc}")
 
