@@ -30,44 +30,34 @@ class PredictPipeline:
 
 class CustomData:
     def __init__(self,
-            Store: str,
-            Dept:str,
-            IsHoliday: str,
-            Temperature :float,
-            Fuel_Price :float,
-            CPI :float,
-            Unemployment :float,
-            Type: str,
-            Size : float,
-            year: str,
-            week:str
+            data_list:list
             ):
-        self.Store=Store,
-        self.Dept=Dept,
-        self.IsHoliday=IsHoliday,
-        self.Temperature =Temperature,
-        self.Fuel_Price =Fuel_Price,
-        self.CPI =CPI,
-        self.Unemployment =Unemployment,
-        self.Type=Type,
-        self.Size =Size,
-        self.year=year,
-        self.week=week
+        self.Store=(data_list[0]),
+        self.Dept=(data_list[1]),
+        self.IsHoliday=data_list[2],
+        self.Temperature =float(data_list[3]),
+        self.Fuel_Price =float(data_list[4]),
+        self.CPI =float(data_list[5]),
+        self.Unemployment =float(data_list[6]),
+        self.Type=data_list[7],
+        self.Size =float(data_list[8]),
+        self.year=data_list[9],
+        self.week=data_list[10]
 
     def get_data_as_data_frame(self):
         try:
             custom_data_input_dict = {
-                'Store':[self.Store],
-                'Dept':[self.Dept],
-                'IsHoliday':[self.IsHoliday], 
-                'Temperature':[self.Temperature], 
-                'Fuel_Price':[self.Fuel_Price], 
-                'CPI':[self.CPI],
-                'Unemployment':[self.Unemployment], 
-                'Type':[self.Type], 
-                'Size':[self.Size], 
-                'year':[self.year], 
-                'week':[self.week]
+                'Store':self.Store,
+                'Dept':self.Dept,
+                'IsHoliday':self.IsHoliday, 
+                'Temperature':self.Temperature, 
+                'Fuel_Price':self.Fuel_Price, 
+                'CPI':self.CPI,
+                'Unemployment':self.Unemployment, 
+                'Type':self.Type, 
+                'Size':self.Size, 
+                'year':self.year, 
+                'week':self.week
             }
 
             return pd.DataFrame(custom_data_input_dict)

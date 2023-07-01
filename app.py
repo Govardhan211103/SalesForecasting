@@ -24,17 +24,7 @@ def predict_datapoint():
         return render_template('home.html')
     else:
         data=CustomData(
-            Store=request.form.get('Store'),
-            Dept=request.form.get('Dept'),
-            IsHoliday=request.form.get('IsHoliday'),
-            Temperature =float(request.form.get('Temperature')),
-            Fuel_Price =(request.form.get('Fuel_price')),
-            CPI =float(request.form.get('CPI')),
-            Unemployment = float(request.form.get('Unemployment')),
-            Type=request.form.get('Type'),
-            Size =float(request.form.get('Size')),
-            year =request.form.get('year'),
-            week=request.form.get('week')
+            data_list=[float(x) for x in request.form.values()]
         )
         pred_df=data.get_data_as_data_frame()
         print(pred_df)
