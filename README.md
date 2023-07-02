@@ -10,7 +10,6 @@ This repository contains a complete Walmart sales forecasting project using modu
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -45,10 +44,10 @@ It is recommended to use a virtual environment to manage the dependencies.
 
 To install the necessary dependencies, follow these steps:
 
-1. Clone this repository: `git clone https://github.com/your-username/walmart-sales-forecasting.git`
-2. Navigate to the project directory: `cd walmart-sales-forecasting`
-3. Create a virtual environment (optional but recommended): `python3 -m venv venv`
-4. Activate the virtual environment: `source venv/bin/activate` (Unix-based) or `venv\Scripts\activate` (Windows)
+1. Clone this repository: `git clone https://github.com/Govardhan211103/SalesForecasting.git`
+2. Navigate to the project directory: `cd SalesForecasting`
+3. Create a virtual environment (optional but recommended): `conda create -p venv python==3.9`
+4. Activate the virtual environment: `conda activate venv`
 5. Install the dependencies: `pip install -r requirements.txt`
 
 ## Usage
@@ -56,17 +55,13 @@ To install the necessary dependencies, follow these steps:
 To train the sales forecasting model and generate predictions, follow these steps:
 
 1. Ensure that you have installed the required dependencies (see the [Installation](#installation) section).
-2. Place the relevant dataset files in the `data/` directory.
-3. Execute the `train_model.py` script to train the CatBoost regression model: `python scripts/train_model.py`
-4. After training, run the `generate_predictions.py` script to generate sales predictions: `python scripts/generate_predictions.py`
-5. The predictions will be saved in the `output/` directory.
-6. Optionally, use the provided Jupyter notebooks in the `notebooks/` directory for exploratory data analysis and model evaluation.
+2. Place the relevant dataset files in the `notebook/data/` directory.
+3. Execute the `data_ingestion.py` script to train the CatBoost regression model: `python src/components/data_ingestion.py`
+4. After training, To use the web application for predicting new data, execute the following: `python app.py/`
+5. Optionally, use the provided Jupyter notebooks in the `notebooks/` directory for exploratory data analysis and model evaluation on different models.
 
 ## Contributing
 
 Contributions to this project are welcome. If you encounter any issues or have suggestions for improvement, please open an issue or submit a pull request. 
 
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code as per the terms of the license.
 ``
