@@ -1,14 +1,14 @@
 import os
 import sys
+
 from dataclasses import dataclass
 
+from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score
-from sklearn.model_selection import GridSearchCV
-from xgboost import XGBRegressor
-
+from catboost import CatBoostRegressor
 from data_transformation import DataTransformation
+from sklearn.model_selection import GridSearchCV
+
 from src.exception import CustomException
 from src.logger import logging
 #from src.utils import save_object,evaluate_model
@@ -31,24 +31,35 @@ class ModelTrainer:
                 test_array[:,:-1],
                 test_array[:,-1]
             )
+            cbr=CatBoostRegressor(verbose=True)
+            logging.info("initiated model training.")
+            cbr.fit(X_train,y_train)
 
-            rfc=RandomForestRegressor()
-
-            rfc.fit(X_train,y_train)
-            logging.info("best found model on traing and test dataests is RandomForestRegressor.")
+            #hyper parameter tuning 
         
+            best_estimator=cbr
+
             data_transform=DataTransformation()
             best_model="RandomForestRegressor"
             data_transform.save_object(
                 file_path=self.model_trainer_config.train_model_file_path,
-                obj=best_model
+                obj=best_estimator
             )
+            
+            logging.info("Predicting test set.")
 
-            predicted=rfc.predict(X_test)
-            train_predicted=rfc.predict(X_train)
-            r2_square=r2_score(y_test,predicted)
+            test_predicted=best_estimator.predict(X_test)
+
+            train_predicted=best_estimator.predict(X_train)
+
+            test_score=r2_score(y_test,test_predicted)
             train_score=r2_score(y_train,train_predicted)
-            return (r2_square, train_score)
+
+            mean_error_test=mean_squared_error(y_test,test_predicted)
+            mean_error_train=mean_squared_error(y_train,train_predicted)
+            logging.info(f"test error: {mean_error_test}, | train error:{mean_error_train}")
+
+            return (train_score, test_score)
 
         except Exception as e:
             raise CustomException(e,sys)
