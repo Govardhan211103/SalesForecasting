@@ -57,7 +57,7 @@ To train the sales forecasting model and generate predictions, follow these step
 1. Ensure that you have installed the required dependencies (see the [Installation](#installation) section).
 2. Place the relevant dataset files in the `notebook/data/` directory.
 3. Execute the `data_ingestion.py` script to train the CatBoost regression model: `python src/components/data_ingestion.py`
-4. After training, To use the web application for predicting new data, execute the following: `python app.py/`
+4. After training, To use the web application for predicting new data, execute the following: `python app.py`
 5. Optionally, use the provided Jupyter notebooks in the `notebooks/` directory for exploratory data analysis and model evaluation on different models.
 
 ## Contributing
