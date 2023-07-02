@@ -23,8 +23,8 @@ The project follows a modular structure to improve code organization and readabi
 - `artifacts/`: This directory contains the datasets used for training and testing the model, preprocessing and model pickle files.
 - `notebooks/`: This directory contains Jupyter notebooks used for exploratory data analysis, feature engineering, and model evaluation along with original data retrieved from Kaggle.
 - `src/`: This directory contains the main Python scripts.
-        `src/components/`: This directory contains scripts for training the model, transforming the data, and evaluating the model's performance.
-        `src/pipeline/`: This directory contains the modular pipeline components used for data preprocessing, feature engineering, model training, and evaluation.      
+<br>        `src/components/`: This directory contains scripts for training the model, transforming the data, and evaluating the model's performance.
+<br>        `src/pipeline/`: This directory contains the modular pipeline components used for data preprocessing, feature engineering, model training, and evaluation.      
 - `templates/`: This directory contains the interface files(HTML) for user interaction.
 
 ## Dependencies
