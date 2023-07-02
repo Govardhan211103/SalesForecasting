@@ -20,11 +20,12 @@ The goal of this project is to forecast sales for various products at Walmart st
 
 The project follows a modular structure to improve code organization and readability. Here is an overview of the main directories and files:
 
-- `data/`: This directory contains the datasets used for training and testing the model.
-- `models/`: This directory houses the machine learning models used for sales forecasting.
-- `notebooks/`: This directory contains Jupyter notebooks used for exploratory data analysis, feature engineering, and model evaluation.
-- `scripts/`: This directory contains the main Python scripts used for training the model, generating predictions, and evaluating the model's performance.
-- `utils/`: This directory includes utility functions and helper modules used throughout the project.
+- `artifacts/`: This directory contains the datasets used for training and testing the model, preprocessing and model pickle files.
+- `notebooks/`: This directory contains Jupyter notebooks used for exploratory data analysis, feature engineering, and model evaluation along with original data retrieved from Kaggle.
+- `src/`: This directory contains the main Python scripts.
+        `src/components/`: This directory contains scripts for training the model, transforming the data, and evaluating the model's performance.
+        `src/pipeline/`: This directory contains the modular pipeline components used for data preprocessing, feature engineering, model training, and evaluation.      
+- `templates/`: This directory contains the interface files(HTML) for user interaction.
 
 ## Dependencies
 
