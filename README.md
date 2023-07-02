@@ -10,6 +10,7 @@ This repository contains a complete Walmart sales forecasting project using modu
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Prediction interface](#prediction-interface)
 
 ## Introduction
 
@@ -64,4 +65,7 @@ To train the sales forecasting model and generate predictions, follow these step
 
 Contributions to this project are welcome. If you encounter any issues or have suggestions for improvement, please open an issue or submit a pull request. 
 
-``
+## Prediction interface
+
+![Alt Text](C:/Users/MEDHA TRUST/Pictures/Screenshots/SalesForecast.jpg)
+
