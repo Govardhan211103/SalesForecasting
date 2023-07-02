@@ -67,5 +67,5 @@ Contributions to this project are welcome. If you encounter any issues or have s
 
 ## Prediction interface
 
-![Alt Text](C:/Users/MEDHA TRUST/Pictures/Screenshots/SalesForecast.jpg)
+![SalesForecast](https://github.com/Govardhan211103/SalesForecasting/assets/112187319/c91818c6-62d5-489b-8ea8-29629e2310a6)
 
