@@ -4,26 +4,23 @@
         /* CSS code for student performance prediction web page */
     
         body {
-            background-color: rgb(255, 255, 244);
+            background-color: rgb(180, 200, 238);
           margin:auto;
-          padding: 20px;
-          font-size: 20px;
-          font-style: unset;
-          color: rgb(83, 35, 35);
+          padding: 10px;
+          font-size: 25px;
+          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+          color: rgb(0, 1, 73);
 
         }
     
-        .mb-3 {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      padding-left: 10px;
-    }
         h1 {
           font-size: 24px;
           margin-bottom: 20px;
         }
-    
+        .table1{
+            border-radius: 20px;
+              font-size: 20px;
+        }
         label {
           display: block;
           margin-bottom: 10px;
@@ -34,28 +31,30 @@
           width: 200px;
           padding: 5px;
           font-size: 16px;
-          border: 2px solid rgb(83, 35, 35);
+          border: 2px solid rgb(180, 200, 238);
           border-radius: 4px;
           padding-left: 10px;
         }
         .form-label{
-            padding-right: 10px;
+            padding-top: 10px;
+            font-size: 22px;
         }
-
         #but {
           padding: 10px 20px;
-          font-size: 16px;
-          background-color: rgb(83, 35, 35);
-          color: #fff;
+          font-size: 20px;
+          background-color: rgb(0,1, 73);
+          color: rgb(180, 200, 238);
           border-radius: 5px;
           cursor: pointer;
         }
     
         #but:hover {
-          background-color: #1b1b1b;
+          background-color: rgb(180, 200, 238);
+          color:rgb(0,1, 73);
         }
     
         .result {
+            color: black;
           margin-top: 20px;
           font-weight: bold;
         }
@@ -63,90 +62,112 @@
 </head>
 <body>
     <div class="login">
-   
+        <table class="table1" align="center">
        <form action="{{ url_for('predict_datapoint')}}" method="post">
-        <h2>
-            Student Exam Performance Prediction
-        </h2>
-        <div class="mb-3">
-            <label class="form-label">Store No  : </label>
-            <input class="form-control" type="text" name="Store"
-                placeholder="Enter Storeno between 1-45" min='1' max='45' />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Department No  : </label>
-            <input class="form-control" type="text" name="Dept"
-                placeholder="Enter Deptno between 1-99" min='1' max='99' />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Holiday or Not : </label>
-            <select class="form-control" name="IsHoliday" placeholder="Holiday or not" required>
-                <option class="placeholder" selected disabled value="">Holiday</option>
-                <option value="True">
-                    YES
-                </option>
-                <option value="False">
-                    NO
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Temperature   : </label>
-            <input class="form-control" type="text" name="Temperature"
-                placeholder="Enter Temperature" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Fuel Price  : </label>
-            <input class="form-control" type="text" name="Fuel_Price"
-                placeholder="Enter Fuel price"/>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">CPI   : </label>
-            <input class="form-control" type="text" name="CPI"
-                placeholder="Consumer Price Index"/>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Unemployment   : </label>
-            <input class="form-control" type="text" name="Unemployment"
-                placeholder="Enter unemployment status"  />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Type of Store  : </label>
-            <select class="form-control" name="Type" placeholder="Enter store Type" required>
-                <option class="placeholder" selected disabled value="">Select Store type</option>
-                <option value="A">
-                    Type A
-                </option>
-                <option value="B">
-                    Type B
-                </option>
-                <option value="C">
-                    Type C
-                </option>
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Size of store   : </label>
-            <input class="form-control" type="text" name="Size"
-                placeholder="Enter Size of store"  />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Date   : </label>
-            <input class="form-control" type="text" name="year"
-                placeholder="Enter date yyyy-mm-dd"  />
-        </div>
-            
+        
+        <h2  align="center" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" >
+            WALMART SALES-FORECASTING  
+        </h2>       
+        
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Store No  : </label></td>
+                <td><input class="form-control" type="text" name="Store"
+                    placeholder="Enter Storeno" min='1' max='45' /></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Department No  : </label></td>
+                <td><input class="form-control" type="text" name="Dept"
+                    placeholder="Enter Deptno" min='1' max='99' /></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Holiday or Not : </label></td>
+                <td><select class="form-control" name="IsHoliday" placeholder="Holiday or not" required>
+                    <option class="placeholder" selected disabled value="">Holiday</option>
+                    <option value="True">
+                        YES
+                    </option>
+                    <option value="False">
+                        NO
+                    </option>
+                </select></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Temperature   : </label></td>
+                <td><input class="form-control" type="text" name="Temperature"
+                    placeholder="Enter Temperature" /></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Fuel Price  : </label></td>
+                <td><input class="form-control" type="text" name="Fuel_Price"
+                    placeholder="Enter Fuel price"/></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">CPI   : </label></td>
+                <td><input class="form-control" type="text" name="CPI"
+                    placeholder="Consumer Price Index"/></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Unemployment   : </label></td>
+                <td><input class="form-control" type="text" name="Unemployment"
+                    placeholder="Enter unemployment status"  /></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Type of Store  : </label></td>
+                <td><select class="form-control" name="Type" placeholder="Enter store Type" required>
+                    <option class="placeholder" selected disabled value="">Select Store type</option>
+                    <option value="A">
+                        Type A
+                    </option>
+                    <option value="B">
+                        Type B
+                    </option>
+                    <option value="C">
+                        Type C
+                    </option>
+                </select></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Size of store   : </label></td>
+                <td><input class="form-control" type="text" name="Size"
+                    placeholder="Enter Size of store"  /></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="mb-3">
+                <td><label class="form-label">Date   : </label></td>
+                <td><input class="form-control" type="text" name="year"
+                    placeholder="Date YYYY-MM-DD"  /></td>
+            </div>
+        </tr>
+        <tr>
         <div class="button">
-            <input class="btn btn-primary" type="submit" id="but" value="Predict your Maths Score" required />
+            <td><input class="btn btn-primary" type="submit" id="but" value="Predict your Maths Score" required /></td>
         </div>
-    </form>
-    <h2>
-       The Prediction is : {{results}}
-    </h2>
+        </tr>
+        <tr>    
+            <div class="mb-3">
+                <td><label class="form-label">The Prediction is   : </label></td>
+                <td>{{results}}</td>
+            </div> 
+        </tr>
+</form>
+</table>
    <body>
 </html>
