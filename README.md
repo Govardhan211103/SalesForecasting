@@ -14,7 +14,7 @@ This repository contains a complete Walmart sales forecasting project using modu
 
 ## Introduction
 
-The goal of this project is to forecast sales for various products at Walmart stores. The prediction is based on historical sales data and other relevant features. The project uses modular programming principles to ensure code reusability and maintainability. Additionally, machine learning techniques are employed, specifically the CatBoost regressor, to develop an accurate prediction model.
+The goal of this project is to forecast sales for various products at Walmart stores. The prediction is based on historical sales data and other relevant features. The project uses modular programming principles to ensure code reusability and maintainability. Additionally, machine learning techniques are employed, specifically the XGBoost regressor, to develop an accurate prediction model.
 
 ## Project Structure
 
