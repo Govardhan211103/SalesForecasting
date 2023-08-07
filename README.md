@@ -32,7 +32,6 @@ The project follows a modular structure to improve code organization and readabi
 The following dependencies are required to run the project:
 
 - Python 3.7 or higher
-- CatBoost 0.26.1 or higher
 - Pandas 1.1.5 or higher
 - NumPy 1.19.5 or higher
 - Scikit-learn 0.24.2 or higher
@@ -57,7 +56,7 @@ To train the sales forecasting model and generate predictions, follow these step
 
 1. Ensure that you have installed the required dependencies (see the [Installation](#installation) section).
 2. Place the relevant dataset files in the `notebook/data/` directory.
-3. Execute the `data_ingestion.py` script to train the CatBoost regression model: `python src/components/data_ingestion.py`
+3. Execute the `data_ingestion.py` script to train the XGBoost regression model: `python src/components/data_ingestion.py`
 4. After training, To use the web application for predicting new data, execute the following: `python app.py`
 5. Optionally, use the provided Jupyter notebooks in the `notebooks/` directory for exploratory data analysis and model evaluation on different models.
 
